@@ -2,6 +2,7 @@
   "name": "itunes",
   "version": "0.1.0",
   "private": true,
+  "homepage": "http://saigowthamr.github.io/Itunes-Top-100-albums",
   "dependencies": {
     "axios": "^0.18.0",
     "moment": "^2.22.1",
@@ -16,9 +17,11 @@
     "build": "react-scripts build",
     "build:1": "react-scripts build && mv build docs",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "deploy": "gh-pages -d build"
   },
   "devDependencies": {
+    "gh-pages": "^1.1.0",
     "webpack-bundle-analyzer": "^2.11.1"
   }
 }
