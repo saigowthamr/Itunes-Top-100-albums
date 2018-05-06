@@ -34,7 +34,7 @@ function formatDate(date, format){
 
         <li className="price album-item">Price:{props.price}</li>
 
-        <li className="date album-item">Released :{formatDate(props.date,"MMM Do YY")}</li>
+        <li className="date album-item">Released:{formatDate(props.date,"MMM Do YY")}</li>
 
 
      </ul>

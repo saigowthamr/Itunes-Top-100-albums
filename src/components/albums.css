@@ -3,9 +3,7 @@
     flex-direction: column;
      justify-content: center;
      align-items: center;
-    font-size: .8rem;
-
-
+    font-size: 1.9vh;
     border-radius: 2rem;
 }
 
@@ -25,15 +23,12 @@
 }
 
 
-
-
-
-
-
 .imgs{
     background-image: url('https://media.giphy.com/media/y1ZBcOGOOtlpC/200.gif');
     transition:all .3s;
 }
+
+
 
 .imgs:hover{
     opacity: .9;
