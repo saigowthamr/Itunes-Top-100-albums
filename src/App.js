@@ -31,7 +31,7 @@ class App extends Component {
   render() {
 
 
-     const load = <h1 className="load">Loading...</h1>
+    const load = <h1 className="load">Loading...</h1>
 
     const albums = this.state.posts.map(e => {
       return (
