@@ -3,8 +3,11 @@ import React from 'react';
 import './header.css';
 
 
-export default ()=>(
+export default () => (
     <header className="header">
-        <h1>Top 100 Albums from Itunes</h1>
+        <a href="/" style={{
+            textDecoration: "none",
+            color: "white", borderBottom: "1px solid red"
+        }}>Top 100 Albums from Itunes</a>
     </header>
 )
