@@ -1,7 +1,6 @@
 import React, { Suspense, lazy, Component } from 'react';
 import axios from "axios";
 import Header from './components/header';
-// import Albums from './components/albums';
 import "./App.css";
 
 const Albums = lazy(() => import('./components/albums'));
@@ -10,14 +9,12 @@ const Albums = lazy(() => import('./components/albums'));
 class App extends Component {
   state = {
     posts: [],
-    show: true
   };
 
   componentDidMount() {
     axios
       .get(`https://itunes.apple.com/in/rss/topalbums/limit=100/json`)
       .then(res => {
-        this.setState
         this.setState({ posts: res.data.feed.entry });
       });
   }
