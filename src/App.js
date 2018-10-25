@@ -1,58 +1,52 @@
-import React, { Component } from "react";
-import "./App.css";
+import React, { Suspense, lazy, Component } from 'react';
 import axios from "axios";
-
 import Header from './components/header';
-import Albums from './components/albums';
+// import Albums from './components/albums';
+import "./App.css";
+
+const Albums = lazy(() => import('./components/albums'));
+
 
 class App extends Component {
   state = {
     posts: [],
-    show:true
+    show: true
   };
 
-
-
   componentDidMount() {
-
-
     axios
       .get(`https://itunes.apple.com/in/rss/topalbums/limit=100/json`)
       .then(res => {
-         this.setState({show:false})
-
+        this.setState
         this.setState({ posts: res.data.feed.entry });
       });
-
   }
 
-
-
   render() {
-
-
-    const load = <h1 className="load">Loading...</h1>
+    const loadingImg = <div className="album-img">
+      <img alt="loading" src="https://media.giphy.com/media/y1ZBcOGOOtlpC/200.gif" />
+    </div>
 
     const albums = this.state.posts.map(e => {
       return (
-
-        <Albums key={e.id.label} image={e["im:image"][2].label}
+        <Suspense key={e.id.label} fallback={loadingImg}>
+          <Albums
+            image={e["im:image"][2].label}
             title={e.title.label}
             link={e.id.label}
             price={e["im:price"].label}
             date={e["im:releaseDate"].label}
-        />
+          />
+        </Suspense>
       );
     });
 
     return (
-
       <div className="app">
-      <Header/>
-      <div className="albums">
-        {this.state.show ? load:albums}
+        <Header />
+        <div className="albums">
+          {albums}
         </div>
-
       </div>
     );
   }
